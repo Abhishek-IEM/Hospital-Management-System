@@ -34,7 +34,10 @@ const Login = () => {
           setConfirmPassword("");
         });
     } catch (error) {
-      toast.error(error.response.data.message);
+      console.error("Login Error:", error);
+      const message =
+        error.response?.data?.message || "Login failed. Please try again.";
+      toast.error(message);
     }
   };
 
